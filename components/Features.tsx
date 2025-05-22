@@ -1,90 +1,63 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Dimensions } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions, Alert } from "react-native";
 import Animated, {
     useSharedValue,
     useAnimatedStyle,
     withTiming,
     Easing,
 } from "react-native-reanimated";
+import InterviewDetails from './InterviewDetails';
+import { useInterviewForm } from '../hooks/useInterviewForm';
 
 const screenWidth = Dimensions.get('window').width;
-
-const InterviewDetails = ({ onClose }) => {
-    return (
-        <View className="bg-gray-900 p-6 rounded-xl w-full">
-            <Text className="text-white text-xl font-bold mb-4">
-                Kick start your journey, Lesgo fill the details33
-            </Text>
-
-            <TextInput
-                placeholder="Ex. Software Developer"
-                placeholderTextColor="#aaa"
-                className="bg-gray-800 text-white px-4 py-2 rounded mb-3"
-                // onChange={(e) => setJobTitle(e.target.value)}
-            />
-
-            <TextInput
-                placeholder="Ex. 1"
-                placeholderTextColor="#aaa"
-                keyboardType="numeric"
-                className="bg-gray-800 text-white px-4 py-2 rounded mb-3"
-            />
-
-            <TextInput
-                placeholder="Job Description"
-                placeholderTextColor="#aaa"
-                multiline
-                numberOfLines={4}
-                className="bg-gray-800 text-white px-4 py-2 rounded mb-3"
-                style={{ textAlignVertical: 'top' }}
-            />
-
-            <TextInput
-                placeholder="Ex. React, TypeScript, SQL"
-                placeholderTextColor="#aaa"
-                className="bg-gray-800 text-white px-4 py-2 rounded mb-4"
-            />
-
-            <View className="flex-row justify-between mt-2">
-                <TouchableOpacity
-                    className="bg-red-500 px-6 py-3 rounded-lg"
-                    onPress={onClose}
-                >
-                    <Text className="text-white font-bold">Cancel</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                    className="bg-cyan-500 px-6 py-3 rounded-lg"
-                >
-                    <Text className="text-white font-bold">Submit</Text>
-                </TouchableOpacity>
-            </View>
-        </View>
-    );
-};
 
 const Features = () => {
     const [showSlider, setShowSlider] = useState(false);
     const translateX = useSharedValue(0);
 
-    const[jobTitle, setJobTitle] = useState<string>('')
+    const {
+        jobTitle,
+        setJobTitle,
+        yearsOfExp,
+        setYearsOfExp,
+        jobDescription,
+        setJobDescription,
+        skills,
+        setSkills,
+        resetForm,
+        getFormData,
+        isFormValid
+    } = useInterviewForm();
 
     const handleToggleSlider = () => {
         if (!showSlider) {
-            // Opening the form
             setShowSlider(true);
             translateX.value = withTiming(-screenWidth, {
                 duration: 500,
                 easing: Easing.inOut(Easing.cubic)
             });
         } else {
-            // Closing the form
             translateX.value = withTiming(0, {
                 duration: 500,
                 easing: Easing.inOut(Easing.cubic)
             });
             setTimeout(() => setShowSlider(false), 500);
         }
+    };
+
+    const handleSubmit = () => {
+        if (!isFormValid()) {
+            Alert.alert('Error', 'Please fill in all fields');
+            return;
+        }
+
+        const formData = getFormData();
+        console.log('Form submitted:', formData);
+
+
+        Alert.alert('Success', 'Interview details submitted successfully!');
+        resetForm();
+        handleToggleSlider();
     };
 
     const introSectionStyle = useAnimatedStyle(() => {
@@ -112,12 +85,11 @@ const Features = () => {
             </View>
 
             <View style={styles.interview} className="bg-black relative overflow-hidden">
-                {/* Introduction Section */}
                 <Animated.View
                     style={[styles.fullSize, introSectionStyle]}
                     className="absolute flex justify-center items-center"
                 >
-                    <Text style={styles.heading2} className="text-white">Schedule your Ai Interview</Text>
+                    <Text style={styles.heading2} className="text-white">Schedule your AI Interview</Text>
                     <Text style={styles.subHeading} className="text-red-600 shadow-white pb-10">
                         You cannot undo or cancel your interview once started
                     </Text>
@@ -131,21 +103,30 @@ const Features = () => {
                     </TouchableOpacity>
                 </Animated.View>
 
-                {/* Form Section */}
                 {showSlider && (
                     <Animated.View
                         style={[styles.fullSize, formSectionStyle]}
                         className="absolute flex justify-center items-center px-6"
                     >
                         <View className="w-full max-w-lg">
-                            <InterviewDetails onClose={handleToggleSlider} />
+                            <InterviewDetails
+                                onClose={handleToggleSlider}
+                                jobTitle={jobTitle}
+                                setJobTitle={setJobTitle}
+                                yearsOfExp={yearsOfExp}
+                                setYearsOfExp={setYearsOfExp}
+                                jobDescription={jobDescription}
+                                setJobDescription={setJobDescription}
+                                skills={skills}
+                                setSkills={setSkills}
+                                onSubmit={handleSubmit}
+                            />
                         </View>
                     </Animated.View>
                 )}
             </View>
 
             <View style={styles.interview} className="bg-black relative overflow-hidden">
-                {/* Introduction Section */}
                 <Animated.View
                     style={[styles.fullSize, introSectionStyle]}
                     className="absolute flex justify-center items-center"
@@ -160,18 +141,28 @@ const Features = () => {
                         onPress={handleToggleSlider}
                         style={{ minWidth: 200 }}
                     >
-                        <Text className="text-white text-center font-bold">Lets get started</Text>
+                        <Text className="text-white text-center font-bold">Let's get started</Text>
                     </TouchableOpacity>
                 </Animated.View>
 
-                {/* Form Section */}
                 {showSlider && (
                     <Animated.View
                         style={[styles.fullSize, formSectionStyle]}
                         className="absolute flex justify-center items-center px-6"
                     >
                         <View className="w-full max-w-lg">
-                            <InterviewDetails onClose={handleToggleSlider} />
+                            <InterviewDetails
+                                onClose={handleToggleSlider}
+                                jobTitle={jobTitle}
+                                setJobTitle={setJobTitle}
+                                yearsOfExp={yearsOfExp}
+                                setYearsOfExp={setYearsOfExp}
+                                jobDescription={jobDescription}
+                                setJobDescription={setJobDescription}
+                                skills={skills}
+                                setSkills={setSkills}
+                                onSubmit={handleSubmit}
+                            />
                         </View>
                     </Animated.View>
                 )}
