@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-interface InterviewFormData {
+type InterviewFormData = {
     jobTitle: string;
     yearsOfExp: string;
     jobDescription: string;
@@ -20,7 +20,7 @@ export const useInterviewForm = () => {
         setSkills('');
     };
 
-    const getFormData = (): InterviewFormData => ({
+    const getFormDetails = (): InterviewFormData => ({
         jobTitle,
         yearsOfExp,
         jobDescription,
@@ -44,7 +44,7 @@ export const useInterviewForm = () => {
         skills,
         setSkills,
         resetForm,
-        getFormData,
+        getFormDetails,
         isFormValid
     };
 };

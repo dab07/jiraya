@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet} from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, ActivityIndicator} from 'react-native';
 
-interface InterviewDetailsProps {
+type InterviewDetailsProps = {
     onClose: () => void;
     jobTitle: string;
     setJobTitle: (value: string) => void;
@@ -12,34 +12,36 @@ interface InterviewDetailsProps {
     skills: string;
     setSkills: (value: string) => void;
     onSubmit: () => void;
+    loading?: boolean;
 }
 
-const InterviewDetails: React.FC<InterviewDetailsProps> = ({
-                                                               onClose,
-                                                               jobTitle,
-                                                               setJobTitle,
-                                                               yearsOfExp,
-                                                               setYearsOfExp,
-                                                               jobDescription,
-                                                               setJobDescription,
-                                                               skills,
-                                                               setSkills,
-                                                               onSubmit
-                                                           }) => {
+const InterviewDetails = ({
+                                                                onClose,
+                                                                jobTitle,
+                                                                setJobTitle,
+                                                                yearsOfExp,
+                                                                setYearsOfExp,
+                                                                jobDescription,
+                                                                setJobDescription,
+                                                                skills,
+                                                                setSkills,
+                                                                onSubmit,
+                                                                loading = false,
+                                                           } : InterviewDetailsProps) => {
     return (
         <View className="bg-gray-900 p-6 rounded-xl w-full">
             <Text className="text-white text-xl font-bold mb-4">
                 Kick start your journey, Let's fill the details
             </Text>
-            <Text style={styles.title} className="text-white p-2">Job Title</Text>
+
             <TextInput
                 placeholder="Ex. Software Developer"
                 placeholderTextColor="#aaa"
                 className="bg-gray-800 text-white px-4 py-2 rounded mb-3"
                 value={jobTitle}
                 onChangeText={setJobTitle}
+                editable={!loading}
             />
-            <Text style={styles.title} className="text-white p-2">Years of Experience</Text>
 
             <TextInput
                 placeholder="Ex. 1"
@@ -48,8 +50,8 @@ const InterviewDetails: React.FC<InterviewDetailsProps> = ({
                 className="bg-gray-800 text-white px-4 py-2 rounded mb-3"
                 value={yearsOfExp}
                 onChangeText={setYearsOfExp}
+                editable={!loading}
             />
-            <Text style={styles.title} className="text-white p-2" >Job Description</Text>
 
             <TextInput
                 placeholder="Job Description"
@@ -60,20 +62,24 @@ const InterviewDetails: React.FC<InterviewDetailsProps> = ({
                 style={{ textAlignVertical: 'top' }}
                 value={jobDescription}
                 onChangeText={setJobDescription}
+                editable={!loading}
             />
-            <Text style={styles.title} className="text-white p-2">Skills</Text>
+
             <TextInput
                 placeholder="Ex. React, TypeScript, SQL"
                 placeholderTextColor="#aaa"
                 className="bg-gray-800 text-white px-4 py-2 rounded mb-4"
                 value={skills}
                 onChangeText={setSkills}
+                editable={!loading}
             />
 
             <View className="flex-row justify-between mt-2">
                 <TouchableOpacity
                     className="bg-red-500 px-6 py-3 rounded-lg"
                     onPress={onClose}
+                    disabled={loading}
+                    style={{ opacity: loading ? 0.5 : 1 }}
                 >
                     <Text className="text-white font-bold">Cancel</Text>
                 </TouchableOpacity>
@@ -81,8 +87,17 @@ const InterviewDetails: React.FC<InterviewDetailsProps> = ({
                 <TouchableOpacity
                     className="bg-cyan-500 px-6 py-3 rounded-lg"
                     onPress={onSubmit}
+                    disabled={loading}
+                    style={{ opacity: loading ? 0.5 : 1 }}
                 >
-                    <Text className="text-white font-bold">Submit</Text>
+                    {loading ? (
+                        <View className="flex-row items-center">
+                            <ActivityIndicator size="small" color="white" />
+                            <Text className="text-white font-bold ml-2">Generating...</Text>
+                        </View>
+                    ) : (
+                        <Text className="text-white font-bold">Submit</Text>
+                    )}
                 </TouchableOpacity>
             </View>
         </View>

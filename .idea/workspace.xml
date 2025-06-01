@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12af07c8-d443-4cef-84fb-7d62993380e4" name="Changes" comment="[dev} gemini">
-      <change afterPath="$PROJECT_DIR$/hooks/useInterviewForm.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="12af07c8-d443-4cef-84fb-7d62993380e4" name="Changes" comment="create UI">
+      <change afterPath="$PROJECT_DIR$/app.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/GeminiAi/genai.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env.local" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Features.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Features.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/InterviewDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/InterviewDetails.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/useInterviewForm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useInterviewForm.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,18 +34,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "dab07"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;dab07&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/dab07/jiraya.git",
-    "accountId": "d04da84d-a045-442e-b4b1-314885aa6a22"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/dab07/jiraya.git&quot;,
+    &quot;accountId&quot;: &quot;d04da84d-a045-442e-b4b1-314885aa6a22&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/components/Features.tsx" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -151,7 +157,9 @@
       <workItem from="1747490031681" duration="10773000" />
       <workItem from="1747628280602" duration="3481000" />
       <workItem from="1747633663136" duration="22595000" />
-      <workItem from="1747803124059" duration="34661000" />
+      <workItem from="1747803124059" duration="40149000" />
+      <workItem from="1748234719205" duration="34309000" />
+      <workItem from="1748780256069" duration="5206000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <option name="closed" value="true" />
@@ -169,15 +177,35 @@
       <option name="project" value="LOCAL" />
       <updated>1747902487621</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="create UI">
+      <option name="closed" value="true" />
+      <created>1747934071468</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1747934071469</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init commit" />
     <MESSAGE value="[dev} gemini" />
-    <option name="LAST_COMMIT_MESSAGE" value="[dev} gemini" />
+    <MESSAGE value="create UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="create UI" />
   </component>
 </project>

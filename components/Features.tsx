@@ -8,8 +8,15 @@ import Animated, {
 } from "react-native-reanimated";
 import InterviewDetails from './InterviewDetails';
 import { useInterviewForm } from '../hooks/useInterviewForm';
-
+import {getInterviewQuestions} from "@/utils/GeminiAi/genai";
 const screenWidth = Dimensions.get('window').width;
+
+type InterviewFormData = {
+    jobTitle: string;
+    yearsOfExp: string;
+    jobDescription: string;
+    skills: string;
+}
 
 const Features = () => {
     const [showSlider, setShowSlider] = useState(false);
@@ -25,7 +32,7 @@ const Features = () => {
         skills,
         setSkills,
         resetForm,
-        getFormData,
+        getFormDetails,
         isFormValid
     } = useInterviewForm();
 
@@ -45,19 +52,49 @@ const Features = () => {
         }
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if (!isFormValid()) {
             Alert.alert('Error', 'Please fill in all fields');
             return;
         }
+        try {
+            const formdetails: InterviewFormData = getFormDetails();
+            const inputPrompt: string = `Job Title: ${formdetails.jobTitle}
+            Years of Experience: ${formdetails.yearsOfExp}
+            Job Description: ${formdetails.jobDescription}
+            Skills: ${formdetails.skills}
+            
+            Generate 5 interview questions based on above given information in json format with answers. Question and answer are fields in json format. Return only the JSON array without any additional text or formatting.
+        
+            Expected format:
+            [
+                {
+                    "question": "Your question here",
+                    "answer": "Your answer here"
+                }
+            ]`;
 
-        const formData = getFormData();
-        console.log('Form submitted:', formData);
+            console.log('Sending prompt to Gemini API...');
+            const fetchInterviewQuestions = await getInterviewQuestions(inputPrompt);
+            console.log('Successfully received response:', fetchInterviewQuestions);
 
+            // Handle the successful response here
+            // For example: navigate to results screen, store in state, etc.
 
-        Alert.alert('Success', 'Interview details submitted successfully!');
-        resetForm();
-        handleToggleSlider();
+        } catch (error) {
+            console.error('Error in handleSubmit:', error);
+
+            // More specific error messages
+            // if (error.message?.includes('API key')) {
+            //     Alert.alert('Configuration Error', 'API key is not properly configured');
+            // } else if (error.message?.includes('network') || error.message?.includes('fetch')) {
+            //     Alert.alert('Network Error', 'Please check your internet connection');
+            // } else if (error.message?.includes('JSON')) {
+            //     Alert.alert('Response Error', 'Invalid response format from AI service');
+            // } else {
+            //     Alert.alert('Error', 'Failed to generate interview questions. Please try again.');
+            // }
+        }
     };
 
     const introSectionStyle = useAnimatedStyle(() => {
