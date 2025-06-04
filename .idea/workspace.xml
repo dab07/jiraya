@@ -4,10 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12af07c8-d443-4cef-84fb-7d62993380e4" name="Changes" comment="fix geminiAPI issue">
+    <list default="true" id="12af07c8-d443-4cef-84fb-7d62993380e4" name="Changes" comment="trim gemini res">
+      <change afterPath="$PROJECT_DIR$/components/AnimatedBackground.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/GlassContainer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/GradientText.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/InfoSection.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/InterviewSection.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/ResumeSection.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/constant/colors.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Features.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Features.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/GeminiAi/genai.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utils/GeminiAi/genai.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/InterviewDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/InterviewDetails.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,13 +27,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -153,7 +163,7 @@
       <workItem from="1748234719205" duration="34309000" />
       <workItem from="1748780256069" duration="6935000" />
       <workItem from="1748844900471" duration="274000" />
-      <workItem from="1749047619850" duration="2109000" />
+      <workItem from="1749047619850" duration="5000000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <option name="closed" value="true" />
@@ -187,7 +197,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748792936845</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="trim gemini res">
+      <option name="closed" value="true" />
+      <created>1749056683149</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1749056683149</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,6 +227,7 @@
     <MESSAGE value="[dev} gemini" />
     <MESSAGE value="create UI" />
     <MESSAGE value="fix geminiAPI issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix geminiAPI issue" />
+    <MESSAGE value="trim gemini res" />
+    <option name="LAST_COMMIT_MESSAGE" value="trim gemini res" />
   </component>
 </project>
