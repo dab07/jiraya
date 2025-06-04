@@ -31,7 +31,6 @@ const Features = () => {
         setJobDescription,
         skills,
         setSkills,
-        resetForm,
         getFormDetails,
         isFormValid
     } = useInterviewForm();
@@ -63,9 +62,9 @@ const Features = () => {
             Years of Experience: ${formdetails.yearsOfExp}
             Job Description: ${formdetails.jobDescription}
             Skills: ${formdetails.skills}
-            
-            Generate 5 interview questions based on above given information in json format with answers. Question and answer are fields in json format. Return only the JSON array without any additional text or formatting.
-        
+
+            Generate 2 interview questions based on above given information in json format with answers. Question and answer are fields in json format. Return only the JSON array without any additional text or formatting.
+
             Expected format:
             [
                 {
@@ -74,7 +73,6 @@ const Features = () => {
                 }
             ]`;
 
-            console.log('Sending prompt to Gemini API...');
             const fetchInterviewQuestions = await getInterviewQuestions(inputPrompt);
             console.log('Successfully received response:', fetchInterviewQuestions);
 
@@ -83,17 +81,6 @@ const Features = () => {
 
         } catch (error) {
             console.error('Error in handleSubmit:', error);
-
-            // More specific error messages
-            // if (error.message?.includes('API key')) {
-            //     Alert.alert('Configuration Error', 'API key is not properly configured');
-            // } else if (error.message?.includes('network') || error.message?.includes('fetch')) {
-            //     Alert.alert('Network Error', 'Please check your internet connection');
-            // } else if (error.message?.includes('JSON')) {
-            //     Alert.alert('Response Error', 'Invalid response format from AI service');
-            // } else {
-            //     Alert.alert('Error', 'Failed to generate interview questions. Please try again.');
-            // }
         }
     };
 
@@ -111,7 +98,7 @@ const Features = () => {
 
     return (
         <View className="flex flex-col">
-            <View className="bg-gradient-to-b from-black to bg-gray-900 p-8 flex flex-row justify-center items-center">
+            <View style={styles.info} className="bg-black p-8 flex flex-row justify-center items-center">
                 <View className="flex flex-col">
                     <Text style={styles.heading} className="text-white shadow-white">Prepare your Interview</Text>
                     <Text style={styles.heading} className="text-white shadow-white">with AI powdered Sensei</Text>
@@ -211,8 +198,11 @@ const Features = () => {
 export default Features;
 
 const styles = StyleSheet.create({
+    info : {
+        height : 800,
+    },
     heading: {
-        fontSize: 64,
+        fontSize: 72,
         fontWeight: 'bold',
     },
     heading2: {
@@ -235,7 +225,7 @@ const styles = StyleSheet.create({
     },
     interview: {
         width: '100%',
-        height: 700,
+        height: 800,
     },
     fullSize: {
         width: '100%',
