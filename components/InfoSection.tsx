@@ -1,9 +1,17 @@
+
 import React from 'react';
 import { View, Text, StyleSheet, Image, Dimensions, Platform } from 'react-native';
+import Animated, {
+    useAnimatedStyle,
+    useSharedValue,
+    withTiming,
+    useAnimatedScrollHandler,
+    interpolate,
+    Extrapolate
+} from 'react-native-reanimated';
 import { LinearGradient } from 'expo-linear-gradient';
 
 import { GradientText } from './GradientText';
-import { GlassContainer } from './GlassContainer';
 import { colors } from '@/constant/colors';
 
 const { width } = Dimensions.get('window');
@@ -12,8 +20,14 @@ const isSmallScreen = width < 768;
 export const InfoSection = () => {
     return (
         <View style={styles.container}>
-            <GlassContainer style={styles.content}>
-                <View style={styles.textContainer}>
+            {/*<Aurora*/}
+            {/*    colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}*/}
+            {/*    blend={0.5}*/}
+            {/*    amplitude={5.0}*/}
+            {/*    speed={0.5}*/}
+            {/*/>*/}
+            <View style={styles.content}>
+                <Animated.View style={styles.textContainer}>
                     <GradientText
                         text="Prepare your Interview"
                         style={styles.heading}
@@ -36,18 +50,18 @@ export const InfoSection = () => {
                         Jiraya provides advanced tools designed to help you succeed
                         in your job applications and interviews.
                     </Text>
-                </View>
+                </Animated.View>
 
                 {!isSmallScreen && (
-                    <View style={styles.imageContainer}>
+                    <Animated.View style={styles.imageContainer}>
                         <Image
                             style={styles.image}
-                            source={require('../assets/images/Working Art Cat.jpeg')}
+                            source={{ uri: 'https://images.pexels.com/photos/5428836/pexels-photo-5428836.jpeg?auto=compress&cs=tinysrgb&w=800' }}
                             resizeMode="cover"
                         />
-                    </View>
+                    </Animated.View>
                 )}
-            </GlassContainer>
+            </View>
         </View>
     );
 };
@@ -56,9 +70,9 @@ const styles = StyleSheet.create({
     container: {
         paddingHorizontal: 24,
         paddingVertical: 48,
-        marginTop: 48,
     },
     content: {
+        height: 600,
         flexDirection: isSmallScreen ? 'column' : 'row',
         alignItems: 'center',
         padding: 32,

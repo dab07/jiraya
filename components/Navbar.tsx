@@ -2,36 +2,43 @@ import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { Link } from 'expo-router';
 
-export default function Navbar() {
+interface NavbarProps {
+    onNavigateToSection?: (section: 'info' | 'interview' | 'resume') => void;
+}
+
+export default function Navbar({ onNavigateToSection }: NavbarProps) {
+    const handleSectionPress = (section: 'info' | 'interview' | 'resume') => {
+        onNavigateToSection?.(section);
+    };
+
     return (
-        <View style={styles.container} className="bg-white shadow-sm px-4 md:px-8 py-4">
-            <View style={styles.navContent} className="flex flex-row items-center justify-between max-w-9xl mx-auto w-full">
+        <View style={styles.container}>
+            <View style={styles.navContent}>
                 <Link href="/" asChild>
-                    <Pressable className="flex-row items-center">
-                        <svg width="67" height="41" viewBox="0 0 67 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M45.0353 4.66312C45.8331 3.77669 46.7195 3.04539 47.6281 2.46921C49.2236 1.47198 50.9079 0.940125 52.6364 0.940125V15.411C51.3732 11.0232 48.6475 7.25591 45.0353 4.66312ZM66.5533 40.9401H15.2957C6.87461 40.9401 0.0712891 34.1146 0.0712891 25.7157C0.0712891 17.6714 6.3206 11.0675 14.232 10.5135V0.940125C16.0048 0.940125 17.7555 1.44982 19.3954 2.46921C20.304 3.02323 21.1904 3.75453 21.9882 4.59663C25.2458 2.31409 29.1904 0.984446 33.4674 0.984446C33.4674 10.2254 30.1433 20.9734 19.3289 20.9955H33.3566C32.9577 19.2005 31.3178 17.8709 29.3677 17.8487H37.5228C35.5727 17.8487 33.9328 19.2005 33.5339 21.0177H46.6087C49.2236 21.0177 51.8164 21.5274 54.2541 22.5468C56.6696 23.544 58.8857 25.0288 60.725 26.8681C62.5865 28.7296 64.0491 30.9235 65.0464 33.339C66.0436 35.7324 66.5533 38.3252 66.5533 40.9401ZM22.8525 10.7795C23.1849 11.6437 24.0713 12.6188 25.3123 13.3279C26.5533 14.0371 27.8386 14.3252 28.7472 14.1922C28.4148 13.3279 27.5284 12.3529 26.2874 11.6437C25.0464 10.9346 23.761 10.6465 22.8525 10.7795ZM41.5117 13.3279C40.2707 14.0371 38.9854 14.3252 38.0768 14.1922C38.4092 13.3279 39.2957 12.3529 40.5367 11.6437C41.7777 10.9346 43.063 10.6465 43.9716 10.7795C43.6613 11.6437 42.7527 12.6188 41.5117 13.3279Z" fill="#283841"></path>
-                        </svg>
-                        <Text style={styles.logo} className="text-primary-600 text-2xl font-bold">Jiraya</Text>
+                    <Pressable style={styles.logoContainer}>
+                        <Text style={styles.logo}>Jiraya</Text>
                     </Pressable>
                 </Link>
 
-                {/* Desktop Navigation */}
-                <View style={styles.desktopNav} className="hidden md:flex flex-row items-center space-x-8">
-                    <Link href="/how it works?" asChild>
-                        <Pressable className="nav-link">
-                            <Text style={styles.navLink} className="text-gray-700 hover:text-primary-600">How its work?</Text>
-                        </Pressable>
-                    </Link>
-                    <Link href="/interview" asChild>
-                        <Pressable className="nav-link">
-                            <Text style={styles.navLink} className="text-gray-700 hover:text-primary-600">Interview Portal</Text>
-                        </Pressable>
-                    </Link>
-                    <Link href="/ats" asChild>
-                        <Pressable className="nav-link">
-                            <Text style={styles.navLink} className="text-gray-700 hover:text-primary-600">ATS Portal</Text>
-                        </Pressable>
-                    </Link>
+                <View style={styles.desktopNav}>
+                    <Pressable
+                        style={styles.navLinkContainer}
+                        onPress={() => handleSectionPress('info')}
+                    >
+                        <Text style={styles.navLink}>How it works?</Text>
+                    </Pressable>
+                    <Pressable
+                        style={styles.navLinkContainer}
+                        onPress={() => handleSectionPress('interview')}
+                    >
+                        <Text style={styles.navLink}>AI Interview</Text>
+                    </Pressable>
+                    <Pressable
+                        style={styles.navLinkContainer}
+                        onPress={() => handleSectionPress('resume')}
+                    >
+                        <Text style={styles.navLink}>Check Your ATS</Text>
+                    </Pressable>
                 </View>
             </View>
         </View>
@@ -42,20 +49,47 @@ const styles = StyleSheet.create({
     container: {
         width: '100%',
         zIndex: 10,
+        backgroundColor: 'rgba(10, 10, 10, 0.95)',
+        borderBottomWidth: 1,
+        borderBottomColor: 'rgba(255, 255, 255, 0.1)',
+        paddingHorizontal: 24,
+        paddingVertical: 16,
+        position: 'absolute',
+        top: 0,
     },
     navContent: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        maxWidth: 1200,
         width: '100%',
+        alignSelf: 'center',
+    },
+    logoContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
     },
     logo: {
+        fontSize: 28,
+        fontWeight: 'bold',
+        color: '#00d4ff',
         fontFamily: 'Inter-Bold',
     },
     desktopNav: {
-        display: 'none', // Hidden on mobile, shown via className on larger screens
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 32,
+    },
+    navLinkContainer: {
+        paddingVertical: 8,
+        paddingHorizontal: 16,
+        borderRadius: 8,
+        // transition: 'all 0.3s ease',
     },
     navLink: {
+        fontSize: 16,
+        color: 'rgba(255, 255, 255, 0.8)',
         fontFamily: 'Inter-Medium',
+        // transition: 'color 0.3s ease',
     },
-    mobileNavLink: {
-        fontFamily: 'Inter-Medium',
-    }
 });

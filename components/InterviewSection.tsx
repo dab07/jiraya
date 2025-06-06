@@ -7,12 +7,13 @@ import Animated, {
     Easing,
 } from 'react-native-reanimated';
 
-import { GlassContainer } from './GlassContainer';
-import { GradientText } from './GradientText';
+import { GlassContainer } from '../components/GlassContainer';
+import { GradientText } from '../components/GradientText';
 import { colors } from '@/constant/colors';
-import InterviewDetails from './InterviewDetails';
+import InterviewDetails from '../components/InterviewDetails';
 import { useInterviewForm } from '@/hooks/useInterviewForm';
 import { getInterviewQuestions } from '@/utils/GeminiAi/genai';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const { width } = Dimensions.get('window');
 const isSmallScreen = width < 768;
@@ -158,8 +159,7 @@ export const InterviewSection = () => {
     );
 };
 
-// Import needed at the end to avoid circular dependency
-import { LinearGradient } from 'expo-linear-gradient';
+export default InterviewSection;
 
 const styles = StyleSheet.create({
     container: {

@@ -4,17 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12af07c8-d443-4cef-84fb-7d62993380e4" name="Changes" comment="trim gemini res">
-      <change afterPath="$PROJECT_DIR$/components/AnimatedBackground.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/GlassContainer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/GradientText.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/InfoSection.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/InterviewSection.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/ResumeSection.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/constant/colors.ts" afterDir="false" />
+    <list default="true" id="12af07c8-d443-4cef-84fb-7d62993380e4" name="Changes" comment="add new UI">
+      <change afterPath="$PROJECT_DIR$/app/+not-found.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/HowitWorks.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/constant/Aurora.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ats.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interview.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AnimatedBackground.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/AnimatedBackground.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Features.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Features.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/InterviewDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/InterviewDetails.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/InfoSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/InfoSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/InterviewSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/InterviewSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ResumeSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ResumeSection.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
@@ -163,7 +167,8 @@
       <workItem from="1748234719205" duration="34309000" />
       <workItem from="1748780256069" duration="6935000" />
       <workItem from="1748844900471" duration="274000" />
-      <workItem from="1749047619850" duration="5000000" />
+      <workItem from="1749047619850" duration="10459000" />
+      <workItem from="1749189919831" duration="4762000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <option name="closed" value="true" />
@@ -205,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749056683149</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add new UI">
+      <option name="closed" value="true" />
+      <created>1749058700766</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1749058700766</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,6 +241,7 @@
     <MESSAGE value="create UI" />
     <MESSAGE value="fix geminiAPI issue" />
     <MESSAGE value="trim gemini res" />
-    <option name="LAST_COMMIT_MESSAGE" value="trim gemini res" />
+    <MESSAGE value="add new UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="add new UI" />
   </component>
 </project>

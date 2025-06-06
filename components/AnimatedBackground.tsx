@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, View } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+import { View, StyleSheet, Dimensions } from 'react-native';
 import Animated, {
     useSharedValue,
     useAnimatedStyle,
@@ -8,8 +7,9 @@ import Animated, {
     withTiming,
     Easing,
 } from 'react-native-reanimated';
+import { LinearGradient } from 'expo-linear-gradient';
 
-import { colors } from '@/constant/colors';
+const { width, height } = Dimensions.get('window');
 
 export const AnimatedBackground = () => {
     const rotation = useSharedValue(0);
@@ -17,13 +17,19 @@ export const AnimatedBackground = () => {
 
     useEffect(() => {
         rotation.value = withRepeat(
-            withTiming(1, { duration: 20000, easing: Easing.linear }),
+            withTiming(360, {
+                duration: 20000,
+                easing: Easing.linear,
+            }),
             -1,
             false
         );
 
         scale.value = withRepeat(
-            withTiming(1.2, { duration: 15000, easing: Easing.inOut(Easing.sin) }),
+            withTiming(1.2, {
+                duration: 8000,
+                easing: Easing.inOut(Easing.sin),
+            }),
             -1,
             true
         );
@@ -32,20 +38,20 @@ export const AnimatedBackground = () => {
     const animatedStyle = useAnimatedStyle(() => {
         return {
             transform: [
-                { rotate: `${rotation.value * 360}deg` },
-                { scale: scale.value }
+                { rotate: `${rotation.value}deg` },
+                { scale: scale.value },
             ],
         };
     });
 
     return (
         <View style={styles.container}>
-            <Animated.View style={[styles.gradientContainer, animatedStyle]}>
+            <Animated.View style={[styles.gradient, animatedStyle]}>
                 <LinearGradient
-                    colors={[colors.darkBlue, colors.deepPurple, colors.darkBlue]}
+                    colors={['#1a1a2e', '#16213e', '#0f3460']}
+                    style={styles.gradientFill}
                     start={{ x: 0, y: 0 }}
                     end={{ x: 1, y: 1 }}
-                    style={styles.gradient}
                 />
             </Animated.View>
             <View style={styles.overlay} />
@@ -55,22 +61,29 @@ export const AnimatedBackground = () => {
 
 const styles = StyleSheet.create({
     container: {
-        ...StyleSheet.absoluteFillObject,
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
         overflow: 'hidden',
     },
-    gradientContainer: {
-        width: '200%',
-        height: '200%',
-        position: 'absolute',
-        top: '-50%',
-        left: '-50%',
-    },
     gradient: {
-        width: '100%',
-        height: '100%',
+        position: 'absolute',
+        width: width * 2,
+        height: height * 2,
+        left: -width / 2,
+        top: -height / 2,
+    },
+    gradientFill: {
+        flex: 1,
     },
     overlay: {
-        ...StyleSheet.absoluteFillObject,
-        backgroundColor: 'rgba(0, 0, 0, 0.65)',
-    }
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'rgba(0, 0, 0, 0.3)',
+    },
 });

@@ -8,10 +8,10 @@ import Animated, {
 } from 'react-native-reanimated';
 import { LinearGradient } from 'expo-linear-gradient';
 
-import { GlassContainer } from './GlassContainer';
-import { GradientText } from './GradientText';
+import { GlassContainer } from '../components/GlassContainer';
+import { GradientText } from '../components/GradientText';
 import { colors } from '@/constant/colors';
-import InterviewDetails from './InterviewDetails';
+import InterviewDetails from '../components/InterviewDetails';
 import { useInterviewForm } from '@/hooks/useInterviewForm';
 
 const { width } = Dimensions.get('window');
@@ -122,6 +122,8 @@ export const ResumeSection = () => {
         </View>
     );
 };
+
+export default ResumeSection;
 
 const styles = StyleSheet.create({
     container: {
