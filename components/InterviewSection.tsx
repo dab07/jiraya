@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Dimensions, Alert, Platform } from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, Dimensions, Alert, Platform, ScrollView} from 'react-native';
 import Animated, {
     useSharedValue,
     useAnimatedStyle,
@@ -105,9 +105,9 @@ export const InterviewSection = () => {
 
     return (
         <View style={styles.container}>
-            <GlassContainer style={styles.content}>
+            {/*<GlassContainer style={styles.content}>*/}
                 <View style={styles.relative}>
-                    <Animated.View style={[styles.fullSize, introSectionStyle]} >
+                    <Animated.View style={[{width: '100%'}, styles.formContainer, introSectionStyle]} >
                         <View style={styles.centerContent}>
                             <GradientText
                                 text="Schedule your AI Interview"
@@ -154,7 +154,7 @@ export const InterviewSection = () => {
                         </Animated.View>
                     )}
                 </View>
-            </GlassContainer>
+            {/*</GlassContainer>*/}
         </View>
     );
 };
@@ -163,12 +163,10 @@ export default InterviewSection;
 
 const styles = StyleSheet.create({
     container: {
-        paddingHorizontal: 24,
         paddingVertical: 32,
         minHeight: 500,
     },
     content: {
-        padding: 0,
         height: 500,
     },
     relative: {
@@ -228,9 +226,17 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
     formContainer: {
-        flex: 1,
+        height : 800,
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 24,
+    },
+
+    formScrollContainer: {
+        flexGrow: 1,
         justifyContent: 'center',
         alignItems: 'center',
         padding: 32,
     },
+
 });

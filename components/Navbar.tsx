@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { Link } from 'expo-router';
+import Aurora from "@/constant/Aurora";
 
 interface NavbarProps {
     onNavigateToSection?: (section: 'info' | 'interview' | 'resume') => void;
@@ -41,6 +42,7 @@ export default function Navbar({ onNavigateToSection }: NavbarProps) {
                     </Pressable>
                 </View>
             </View>
+
         </View>
     );
 }
@@ -82,7 +84,6 @@ const styles = StyleSheet.create({
     },
     navLinkContainer: {
         paddingVertical: 8,
-        paddingHorizontal: 16,
         borderRadius: 8,
         // transition: 'all 0.3s ease',
     },

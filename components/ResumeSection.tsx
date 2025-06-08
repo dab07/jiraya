@@ -69,7 +69,6 @@ export const ResumeSection = () => {
 
     return (
         <View style={styles.container}>
-            <GlassContainer style={styles.content}>
                 <View style={styles.relative}>
                     <Animated.View style={[styles.fullSize, introSectionStyle]} >
                         <View style={styles.centerContent}>
@@ -102,23 +101,12 @@ export const ResumeSection = () => {
                     {showSlider && (
                         <Animated.View style={[styles.fullSize, formSectionStyle]}>
                             <View style={styles.formContainer}>
-                                <InterviewDetails
-                                    onClose={handleToggleSlider}
-                                    jobTitle={jobTitle}
-                                    setJobTitle={setJobTitle}
-                                    yearsOfExp={yearsOfExp}
-                                    setYearsOfExp={setYearsOfExp}
-                                    jobDescription={jobDescription}
-                                    setJobDescription={setJobDescription}
-                                    skills={skills}
-                                    setSkills={setSkills}
-                                    onSubmit={handleSubmit}
-                                />
+                                <ResumeSection/>
                             </View>
                         </Animated.View>
                     )}
                 </View>
-            </GlassContainer>
+            {/*</GlassContainer>*/}
         </View>
     );
 };

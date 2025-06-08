@@ -1,14 +1,7 @@
 
 import React from 'react';
 import { View, Text, StyleSheet, Image, Dimensions, Platform } from 'react-native';
-import Animated, {
-    useAnimatedStyle,
-    useSharedValue,
-    withTiming,
-    useAnimatedScrollHandler,
-    interpolate,
-    Extrapolate
-} from 'react-native-reanimated';
+import Animated from 'react-native-reanimated';
 import { LinearGradient } from 'expo-linear-gradient';
 
 import { GradientText } from './GradientText';
@@ -20,12 +13,7 @@ const isSmallScreen = width < 768;
 export const InfoSection = () => {
     return (
         <View style={styles.container}>
-            {/*<Aurora*/}
-            {/*    colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}*/}
-            {/*    blend={0.5}*/}
-            {/*    amplitude={5.0}*/}
-            {/*    speed={0.5}*/}
-            {/*/>*/}
+
             <View style={styles.content}>
                 <Animated.View style={styles.textContainer}>
                     <GradientText
@@ -68,11 +56,9 @@ export const InfoSection = () => {
 
 const styles = StyleSheet.create({
     container: {
-        paddingHorizontal: 24,
-        paddingVertical: 48,
     },
     content: {
-        height: 600,
+        height: 400,
         flexDirection: isSmallScreen ? 'column' : 'row',
         alignItems: 'center',
         padding: 32,

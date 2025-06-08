@@ -98,7 +98,7 @@ export default InterviewDetails;
 const styles = StyleSheet.create({
     container: {
         width: '100%',
-        maxWidth: 500,
+        maxWidth: 1000,
         backgroundColor: 'rgba(20, 20, 40, 0.6)',
         borderRadius: 16,
         padding: 24,
@@ -117,6 +117,7 @@ const styles = StyleSheet.create({
             },
         }),
     },
+
     header: {
         flexDirection: 'row',
         justifyContent: 'space-between',

@@ -39,7 +39,9 @@ export default function Index() {
     return (
         <View style={styles.container}>
             <Navbar onNavigateToSection={handleNavigateToSection} />
-            <Features onSectionLayout={handleSectionLayout} />
+            <Features onSectionLayout={handleSectionLayout}
+                      scrollRef={scrollRef}
+            />
         </View>
     );
 }
