@@ -13,7 +13,6 @@ const isSmallScreen = width < 768;
 export const InfoSection = () => {
     return (
         <View style={styles.container}>
-
             <View style={styles.content}>
                 <Animated.View style={styles.textContainer}>
                     <GradientText
@@ -56,6 +55,7 @@ export const InfoSection = () => {
 
 const styles = StyleSheet.create({
     container: {
+        // flex: 1,
     },
     content: {
         height: 400,

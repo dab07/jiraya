@@ -82,7 +82,7 @@ export const InterviewSection = () => {
 
             const fetchInterviewQuestions = await getInterviewQuestions(inputPrompt);
             console.log('Successfully received response:', fetchInterviewQuestions);
-
+            // <Link
             // Handle the successful response here
             // For example: navigate to results screen, store in state, etc.
 
@@ -104,7 +104,7 @@ export const InterviewSection = () => {
     });
 
     return (
-        <View style={styles.container}>
+        <View style={styles.container} className="py-9">
             {/*<GlassContainer style={styles.content}>*/}
                 <View style={styles.relative}>
                     <Animated.View style={[{width: '100%'}, styles.formContainer, introSectionStyle]} >

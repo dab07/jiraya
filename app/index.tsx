@@ -9,6 +9,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import Navbar from '../components/Navbar';
 import Features from '../components/Features';
+import '../global.css'
 
 export default function Index() {
     const scrollRef = useAnimatedRef<Animated.ScrollView>();
@@ -37,7 +38,7 @@ export default function Index() {
     };
 
     return (
-        <View style={styles.container}>
+        <View style={styles.container} className="bg-[#0a0a0a]">
             <Navbar onNavigateToSection={handleNavigateToSection} />
             <Features onSectionLayout={handleSectionLayout}
                       scrollRef={scrollRef}
@@ -49,6 +50,5 @@ export default function Index() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#0a0a0a',
     },
 });

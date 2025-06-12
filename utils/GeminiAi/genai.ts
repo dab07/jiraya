@@ -7,10 +7,9 @@ import Constants from 'expo-constants';
 
 export const getInterviewQuestions = async (content : string ) => {
     try {
-
         const apiKey = Constants.expoConfig?.extra?.geminiApiKey;
         if (!apiKey) {
-            throw new Error('API key not configured. Please check your .env.local file');
+            throw new Error('API key not configured. Please check your .env file');
         }
 
         const ai = new GoogleGenAI({
@@ -49,8 +48,9 @@ export const getInterviewQuestions = async (content : string ) => {
         else if (trimFullResponse.startsWith('```')) {
             trimFullResponse = trimFullResponse.replace(/^```\s*/, '').replace(/\s*```$/, '');
         }
-        const parsedGeminiResponse = JSON.parse(trimFullResponse);
-        return JSON.parse(parsedGeminiResponse);
+        let parsedGeminiResponse: any;
+        parsedGeminiResponse = JSON.parse(trimFullResponse);
+        return parsedGeminiResponse;
     } catch (error) {
         console.error('Error generating interview questions:', error);
         Alert.alert('Error', 'Failed to generate interview questions');

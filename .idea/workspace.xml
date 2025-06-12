@@ -4,19 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12af07c8-d443-4cef-84fb-7d62993380e4" name="Changes" comment="[dev] scroll navigation">
-      <change afterPath="$PROJECT_DIR$/components/ResumeDetails.tsx" afterDir="false" />
+    <list default="true" id="12af07c8-d443-4cef-84fb-7d62993380e4" name="Changes" comment="fix scroll navigation">
+      <change afterPath="$PROJECT_DIR$/.env.local" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/AnimatedBackground.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/AnimatedBackground.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Features.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Features.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/InfoSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/InfoSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/InterviewDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/InterviewDetails.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/InterviewSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/InterviewSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ResumeSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ResumeSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drizzle.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/drizzle.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/global.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/GeminiAi/genai.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utils/GeminiAi/genai.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/db/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utils/db/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,28 +68,28 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/hs/WebstormProjects/jiraya",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "/Users/hs/Library/Application Support/JetBrains/WebStorm2024.3/node/versions/22.16.0/bin/node",
-    "nodejs_package_manager_path": "npm",
-    "npm.db:push.executor": "Run",
-    "npm.reset-project --web.executor": "Run",
-    "npm.reset-project.executor": "Run",
-    "npm.web.executor": "Run",
-    "settings.editor.selected.configurable": "settings.nodejs",
-    "ts.external.directory.path": "/Users/hs/WebstormProjects/jiraya/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/hs/WebstormProjects/jiraya&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;/Users/hs/Library/Application Support/JetBrains/WebStorm2024.3/node/versions/22.16.0/bin/node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.db:push.executor&quot;: &quot;Run&quot;,
+    &quot;npm.reset-project --web.executor&quot;: &quot;Run&quot;,
+    &quot;npm.reset-project.executor&quot;: &quot;Run&quot;,
+    &quot;npm.web.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.nodejs&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/hs/WebstormProjects/jiraya/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/utils/db" />
@@ -167,7 +171,11 @@
       <workItem from="1749047619850" duration="10459000" />
       <workItem from="1749189919831" duration="6538000" />
       <workItem from="1749276866242" duration="973000" />
-      <workItem from="1749382493543" duration="5614000" />
+      <workItem from="1749382493543" duration="6893000" />
+      <workItem from="1749627188183" duration="1406000" />
+      <workItem from="1749630813169" duration="9323000" />
+      <workItem from="1749707327412" duration="1625000" />
+      <workItem from="1749723652414" duration="2719000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <option name="closed" value="true" />
@@ -225,7 +233,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749214612080</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fix scroll navigation">
+      <option name="closed" value="true" />
+      <created>1749401480584</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1749401480584</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,6 +266,7 @@
     <MESSAGE value="trim gemini res" />
     <MESSAGE value="add new UI" />
     <MESSAGE value="[dev] scroll navigation" />
-    <option name="LAST_COMMIT_MESSAGE" value="[dev] scroll navigation" />
+    <MESSAGE value="fix scroll navigation" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix scroll navigation" />
   </component>
 </project>

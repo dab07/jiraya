@@ -45,8 +45,8 @@ export const AnimatedBackground = () => {
     });
 
     return (
-        <View style={styles.container}>
-            <Animated.View style={[styles.gradient, animatedStyle]}>
+        <View style={styles.container} className="absolute left-0 top-0 right-0 bottom-0 overflow-hidden">
+            <Animated.View style={[styles.gradient, animatedStyle]} className="absolute">
                 <LinearGradient
                     colors={['#1a1a2e', '#16213e', '#0f3460']}
                     style={styles.gradientFill}
@@ -61,16 +61,9 @@ export const AnimatedBackground = () => {
 
 const styles = StyleSheet.create({
     container: {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        overflow: 'hidden',
         height: '100%',
     },
     gradient: {
-        position: 'absolute',
         width: width ,
         height: height,
         left: -width / 2,
