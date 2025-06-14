@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Platform } from 'react-native';
+import {View, Text, TextInput, TouchableOpacity, StyleSheet, Platform, Pressable} from 'react-native';
 import { X } from 'lucide-react-native';
 
 import { colors } from '@/constant/colors';
+import {Link} from "expo-router";
 
 interface InterviewDetailsProps {
     onClose: () => void;
@@ -85,7 +86,6 @@ const InterviewDetails = ({
                     placeholderTextColor="rgba(255, 255, 255, 0.5)"
                 />
             </View>
-
             <TouchableOpacity style={styles.submitButton} onPress={onSubmit}>
                 <Text style={styles.submitButtonText}>Submit</Text>
             </TouchableOpacity>

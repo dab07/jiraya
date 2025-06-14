@@ -1,11 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import Animated, {
-    useSharedValue,
     useAnimatedRef,
     scrollTo,
-    withTiming,
-    Easing
 } from 'react-native-reanimated';
 import Navbar from '../components/Navbar';
 import Features from '../components/Features';

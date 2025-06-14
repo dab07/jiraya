@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, Dimensions, Alert, Platform, ScrollView} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, Dimensions, Alert, Platform} from 'react-native';
 import Animated, {
     useSharedValue,
     useAnimatedStyle,
     withTiming,
     Easing,
 } from 'react-native-reanimated';
-
-import { GlassContainer } from '../components/GlassContainer';
 import { GradientText } from '../components/GradientText';
 import { colors } from '@/constant/colors';
 import InterviewDetails from '../components/InterviewDetails';
 import { useInterviewForm } from '@/hooks/useInterviewForm';
 import { getInterviewQuestions } from '@/utils/GeminiAi/genai';
 import { LinearGradient } from 'expo-linear-gradient';
+import {router} from "expo-router";
+import {allInterviewDetails} from "@/utils/db";
 
 const { width } = Dimensions.get('window');
 const isSmallScreen = width < 768;
@@ -79,13 +79,30 @@ export const InterviewSection = () => {
               "answer": "Your answer here"
           }
       ]`;
+            const sampleGeminiResponse = [
+                {
+                    "question": "Can you walk me through your experience with React Native and how you've used it in previous projects?",
+                    "answer": "I have 3 years of experience with React Native, developing cross-platform mobile applications. I've worked on projects involving navigation with React Navigation, state management with Redux and Context API, implemented custom components, integrated third-party libraries like react-native-reanimated for animations, and published apps to both iOS and Android app stores. I've also worked with native modules when platform-specific functionality was needed."
+                },
+                {
+                    "question": "How do you handle state management in React Native applications, and what's your preferred approach?",
+                    "answer": "For state management, I use a combination of approaches depending on the complexity. For local component state, I use React hooks like useState and useReducer. For global state, I prefer Redux Toolkit for complex applications due to its predictable state updates and excellent debugging tools. For simpler apps, I use React Context API. I also leverage React Query for server state management, which handles caching, synchronization, and background updates efficiently."
+                }
+            ];
 
-            const fetchInterviewQuestions = await getInterviewQuestions(inputPrompt);
-            console.log('Successfully received response:', fetchInterviewQuestions);
-            // <Link
-            // Handle the successful response here
-            // For example: navigate to results screen, store in state, etc.
+            // const fetchInterviewQuestions = await getInterviewQuestions(inputPrompt);
+            // console.log('Successfully received response:', fetchInterviewQuestions);
+            const storeInterviewQuestions = await allInterviewDetails({
+                jobTitle: formdetails.jobTitle,
+                jobExp : formdetails.yearsOfExp,
+                jobDescription: formdetails.jobDescription,
+                jobSkills : formdetails.skills,
+                jsonMockResponse: JSON.stringify(sampleGeminiResponse)
+            })
 
+
+            console.log(`Successfully stored gemini response ${storeInterviewQuestions}`)
+            router.push(`/AiInterview?mockId=${storeInterviewQuestions.mockId}`);
         } catch (error) {
             console.error('Error in handleSubmit:', error);
         }
